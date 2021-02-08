@@ -1,6 +1,8 @@
 'use strict';
 const apiUrl = 'http://api.tvmaze.com/search/shows?q=';
-const noImageUrl = 'https://via.placeholder.com/210x295/ffffff/666666/?text=image-not-found';
+const noImageUrlText = 'Image not found';
+const noImageUrl = `https://via.placeholder.com/210x295/ffffff/666666/?text=${noImageUrlText}`;
+const noImageUrlFavorite = `https://via.placeholder.com/125x175/ffffff/666666/?text=${noImageUrlText}`;
 const formElement = document.querySelector('.js-form');
 const searchInputElement = document.querySelector('.js-search-input');
 const searchBtnElement = document.querySelector('.js-search-btn');
