@@ -1,0 +1,41 @@
+// fonts
+@mixin robotoRegular {
+  font-family: $font-text;
+  font-weight: 400;
+  @content;
+}
+@mixin robotoMedium {
+  font-family: $font-text;
+  font-weight: 500;
+  @content;
+}
+@mixin robotoBold {
+  font-family: $font-title;
+  font-weight: 600;
+  @content;
+}
+
+// text function
+@mixin sizeLine($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+// flex
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// mediaqueries
+@mixin mediaTablet {
+  @media all and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin mediaDesktop {
+  @media all and (min-width: 1200px) {
+    @content;
+  }
+}
