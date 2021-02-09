@@ -10,37 +10,28 @@
   </head>
 
   <body>
-    <div class="page">
-      <header class="page__header">
-        <h1 class="page__title"></h1>
-        <form action="" class="page__form js-form">
-          <input name="search" type="text" class="page__form--input js-search-input" value="dex" />
-          <button type="search" class="js-search-btn">Search</button>
-        </form>
-      </header>
+    <header class="page__header">
+      <h1 class="page__title"></h1>
+      <form action="" class="page__form js-form">
+        <input
+          name="search"
+          type="text"
+          class="page__form--input js-search-input"
+          value="x"
+          placeholder="Find your favorite show..."
+        />
+        <button type="search" class="js-search-btn">Search</button>
+      </form>
+    </header>
 
-      <main class="page__main">
-        <ul class="main__list js-list"></ul>
+    <main class="page__main">
+      <ul class="main__list js-list"></ul>
+      <div class="main__favorite js-favorite-shows"></div>
+    </main>
 
-        <aside class="js-favorites-aside">
-          <ul class="main__list js-list-favorites">
-            <li class="js-list-element-favorite">
-              <article class="page__card--favorite">
-                <p class="js-title page__card--favorite-title">Nombre serie</p>
-                <img
-                  class="js-image page__card--favorite-img"
-                  src="https://via.placeholder.com/110x195/ffffff/666666/?text=image-not-found"
-                  alt=""
-                />
-              </article>
-            </li>
-          </ul>
-        </aside>
-      </main>
+    <footer class="page__footer"></footer>
 
-      <footer class="page__footer"></footer>
 
-    </div>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
