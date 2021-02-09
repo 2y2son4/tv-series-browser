@@ -33,6 +33,7 @@ function handleShow(ev) {
 
   paintSearchCards();
   paintFavoriteCards();
+  listenResetBtn();
 }
 
 // listen to favorite show events
@@ -58,4 +59,5 @@ function handleFavoriteShow(ev) {
   }
   paintSearchCards();
   paintFavoriteCards();
+  listenResetBtn();
 }
