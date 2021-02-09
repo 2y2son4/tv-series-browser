@@ -1,5 +1,3 @@
-![alt text](./assets/images/favicon.png '2y2son4 GitHub page')
-
 # Evaluación final – Módulo 2 – JavaScript.
 
 Ejercicio de JavaScript, HTML y CSS para realizar una página de búsqueda de series de TV para almacenarlas en favoritos por la usuaria.
