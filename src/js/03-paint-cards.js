@@ -62,7 +62,6 @@ function paintFavoriteCards() {
     htmlCode += `<li class="js-list-element-favorite${hiddenClass} main__list--lifav" id="${favoriteShow.show.id}">`;
     htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}</h3>`;
 
-    // htmlCode += '';
     if (favoriteShow.show.image === null) {
       htmlCode += `<img class="js-image page__card--img" src="${noImageUrlFavorite}" alt="${favoriteShow.show.name}" />`;
     } else {

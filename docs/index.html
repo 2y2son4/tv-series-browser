@@ -4,32 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Módulo 2 | Evaluación final</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="icon" href="./assets/images/favicon.png" />
   </head>
 
   <body>
-    <header class="page__header">
-      <h1 class="page__title"></h1>
-      <form action="" class="page__form js-form">
-        <input
-          name="search"
-          type="text"
-          class="page__form--input js-search-input"
-          value="x"
-          placeholder="Find your favorite show..."
-        />
-        <button type="search" class="js-search-btn">Search</button>
-      </form>
+    <header class="header">
+      <img src="./assets/images/favicon.png" alt="" class="header__icon" />
+      <h1 class="header__title">Search and save your favorite TV shows</h1>
+      <img src="./assets/images/favicon.png" alt="" class="header__icon" />
     </header>
 
-    <main class="page__main">
-      <ul class="main__list js-list"></ul>
-      <div class="main__favorite js-favorite-shows"></div>
+    <main class="main">
+      <div class="main__container--search">
+        <form action="" class="main__form js-form">
+          <input
+            name="search"
+            type="text"
+            class="main__form--input js-search-input"
+            value="x"
+            placeholder="Find your favorite show..."
+          />
+          <button type="search" class="js-search-btn main__form--btn">Search</button>
+        </form>
+      </div>
+      <div class="main__container--cards">
+        <section class="main__favorite js-favorite-shows"></section>
+        <section class="main__search js-search-shows"></section>
+      </div>
     </main>
 
-    <footer class="page__footer"></footer>
+    <footer class="footer">
+      <span class="footer__span"
+        >Design and code by <a class="footer__span--link" href="https://github.com/2y2son4" target="_blank"> 2y2son4 👽</a>
+      </span>
+    </footer>
 
 
     <script src="./assets/js/main.js"></script>
