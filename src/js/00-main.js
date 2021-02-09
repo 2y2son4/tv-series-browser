@@ -10,8 +10,6 @@ const searchBtnElement = document.querySelector('.js-search-btn');
 let shows = [];
 let favoriteShows = [];
 
-// local storage
-
 // prevent submit form
 function handleForm(ev) {
   ev.preventDefault();
@@ -28,10 +26,26 @@ function getDataFromApi() {
       shows = data;
       paintSearchCards();
       paintFavoriteCards();
+      setInLocalStorage();
     });
 }
 
 searchBtnElement.addEventListener('click', getDataFromApi);
+
+// local storage
+function setInLocalStorage() {
+  localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+}
+
+function getFromLocalStorage() {
+  const arrayFavoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
+  // find if it's the first time in the page or if the favorite arrays is empty.
+  if (arrayFavoriteShows !== null) {
+    favoriteShows = arrayFavoriteShows;
+  }
+}
+getFromLocalStorage();
+paintFavoriteCards();
 
 // paint card:
 function paintSearchCards() {
@@ -91,6 +105,7 @@ function paintFavoriteCards() {
   listFavoriteElement.innerHTML = htmlCode;
   // listen to event after painting
   listenFavoriteShowEvents();
+  setInLocalStorage();
 }
 
 function listenShowEvents() {
@@ -145,5 +160,3 @@ function handleFavoriteShow(ev) {
   paintSearchCards();
   paintFavoriteCards();
 }
-
-getDataFromApi();
