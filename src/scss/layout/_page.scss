@@ -1,3 +1,17 @@
+.main {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  &__favorite {
+    background-color: aquamarine;
+  }
+}
+
 .card--favorite {
   background-color: #fabada;
+}
+.hidden {
+  display: none;
 }

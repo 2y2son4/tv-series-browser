@@ -27,6 +27,7 @@ function getDataFromApi() {
     .then((data) => {
       shows = data;
       paintSearchCards();
+      paintFavoriteCards();
     });
 }
 
@@ -35,9 +36,17 @@ searchBtnElement.addEventListener('click', getDataFromApi);
 // paint card:
 function paintSearchCards() {
   let htmlCode = '';
+  let favClass;
   for (const show of shows) {
+    // find if the show is already in the favoriteShows array
+    const isInFav = favoriteShows.find((favShow) => favShow.show.id === show.show.id);
+    if (isInFav === undefined) {
+      favClass = '';
+    } else {
+      favClass = ' card--favorite';
+    }
     // paint HTML code
-    htmlCode += `<li class="js-list-element" id="${show.show.id}">`;
+    htmlCode += `<li class="js-list-element${favClass}" id="${show.show.id}">`;
     htmlCode += `<h2 class="page__card--title">${show.show.name}</h2>`;
     if (show.show.image === null) {
       htmlCode += `<img class="js-image page__card--img" src="${noImageUrl}" alt="${show.show.name}" />`;
@@ -48,20 +57,31 @@ function paintSearchCards() {
   }
   const listElement = document.querySelector('.js-list');
   listElement.innerHTML = htmlCode;
+
   // listen to event after painting
   listenShowEvents();
 }
 
+// paint Favorite shows cards
 function paintFavoriteCards() {
+  // paint HTML code
   let htmlCode = '<ul class="main__list js-list-favorites">';
+  // add/remove hidden CSS class for unfavorited shows
+  let hiddenClass;
   for (const favoriteShow of favoriteShows) {
-    // paint HTML code
-    htmlCode += `<li class="js-list-element-favorite" id="${favoriteShow.show.id}">`;
-    htmlCode += `<h2 class="page__card--title">${favoriteShow.show.name}</h2>`;
+    const isInFav = favoriteShows.find((favShow) => favShow.show.id === favoriteShow.show.id);
+    if (isInFav === undefined) {
+      hiddenClass = ' hidden';
+    } else {
+      hiddenClass = '';
+    }
+    htmlCode += `<li class="js-list-element-favorite${hiddenClass}" id="${favoriteShow.show.id}">`;
+    htmlCode += `<h2 class="page__card--title">${favoriteShow.show.name}<img src="./assets/images/icon-close.png" alt="Close" class="icon--close"></h2>`;
+    // htmlCode += '';
     if (favoriteShow.show.image === null) {
       htmlCode += `<img class="js-image page__card--img" src="${noImageUrlFavorite}" alt="${favoriteShow.show.name}" />`;
     } else {
-      htmlCode += `<img class="js-image page__card--img" src="${favoriteShow.favoriteShow.image.medium}" alt="${favoriteShow.show.name}" />`;
+      htmlCode += `<img class="js-image page__card--img" src="${favoriteShow.show.image.medium}" alt="${favoriteShow.show.name}" />`;
     }
     htmlCode += '</li>';
   }
@@ -69,6 +89,8 @@ function paintFavoriteCards() {
 
   const listFavoriteElement = document.querySelector('.js-favorite-shows');
   listFavoriteElement.innerHTML = htmlCode;
+  // listen to event after painting
+  listenFavoriteShowEvents();
 }
 
 function listenShowEvents() {
@@ -87,15 +109,41 @@ function handleShow(ev) {
     // add to favoriteShows[] the shows with the clicked ID.
     const clickedShow = shows.find((tvShow) => clickedShowId === tvShow.show.id);
     favoriteShows.push(clickedShow);
-    console.log('No está, lo añado');
+    //console.log('No está, lo añado');
   } else {
     const filteredFavorites = favoriteShows.filter((favShow) => favShow.show.id !== clickedShowId);
     favoriteShows = filteredFavorites;
-    console.log('Sí, está, lo quito');
+    //console.log('Si está, lo quito');
   }
-  console.log(favoriteCLickedShow);
+  // console.log(favoriteCLickedShow);
 
-  console.log(favoriteShows);
+  // console.log(favoriteShows);
+  paintSearchCards();
+  paintFavoriteCards();
+}
+
+function listenFavoriteShowEvents() {
+  const favoriteElements = document.querySelectorAll('.js-list-element-favorite');
+  for (const favoriteElement of favoriteElements) {
+    favoriteElement.addEventListener('click', handleFavoriteShow);
+  }
+}
+
+function handleFavoriteShow(ev) {
+  const clickedShowId = Number(ev.currentTarget.id);
+
+  // find if the clicked show is already in the favoriteShows array
+  const favoriteCLickedShow = favoriteShows.find((favShow) => favShow.show.id === clickedShowId);
+  if (favoriteCLickedShow === undefined) {
+    // add to favoriteShows[] the shows with the clicked ID.
+    const clickedShow = shows.find((tvShow) => clickedShowId === tvShow.show.id);
+    favoriteShows.push(clickedShow);
+  } else {
+    const filteredFavorites = favoriteShows.filter((favShow) => favShow.show.id !== clickedShowId);
+    favoriteShows = filteredFavorites;
+  }
+  paintSearchCards();
+  paintFavoriteCards();
 }
 
 getDataFromApi();
