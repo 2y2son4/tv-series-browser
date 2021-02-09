@@ -15,24 +15,24 @@ function paintSearchCards() {
       favClass = ' card--favorite';
     }
     // paint HTML code
-    htmlCode += `<li class="js-list-element${favClass}" id="${show.show.id}">`;
+    htmlCode += `<li class="main__list--element js-list-element${favClass}" id="${show.show.id}">`;
     if (show.show.officialSite === null) {
-      htmlCode += `<h2 class="page__card--title">${show.show.name}</h2>`;
+      htmlCode += `<h2 class="main__card--title">${show.show.name}</h2>`;
     } else {
-      htmlCode += '<h2 class="page__card--title">';
-      htmlCode += `<a class="page__card--link" href="${show.show.officialSite}" target="_blank" title="${show.show.name} official site">${show.show.name}</a>`;
+      htmlCode += '<h2 class="main__card--title">';
+      htmlCode += `<a class="main__card--link" href="${show.show.officialSite}" target="_blank" title="${show.show.name} official site">${show.show.name}</a>`;
       htmlCode += '</h2>';
     }
 
     if (show.show.image === null) {
-      htmlCode += `<img class="js-image page__card--img" src="${noImageUrl}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="js-image main__card--img" src="${noImageUrl}" alt="${show.show.name}" />`;
     } else {
-      htmlCode += `<img class="js-image page__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="js-image main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
     }
     if (show.show.rating.average === null) {
-      htmlCode += '';
+      htmlCode += '<span class="page__card--rating">-- / 10</span>';
     } else {
-      htmlCode += `<span class="page__card--rating">${show.show.rating.average}</span>`;
+      htmlCode += `<span class="page__card--rating">${show.show.rating.average} / 10</span>`;
     }
     htmlCode += '</li>';
   }
@@ -48,8 +48,8 @@ function paintSearchCards() {
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
-  let htmlCode = '<button class="js-reset-btn">Clean favorites</button>';
-  htmlCode += '<ul class="main__list js-list-favorites">';
+  let htmlCode = '<button class="js-reset-btn main__favorite--btn">Clean favorites</button>';
+  htmlCode += '<ul class="main__list--fav js-list-favorites">';
   // add/remove hidden CSS class for unfavorited shows
   let hiddenClass;
   for (const favoriteShow of favoriteShows) {
@@ -59,9 +59,9 @@ function paintFavoriteCards() {
     } else {
       hiddenClass = '';
     }
-    htmlCode += `<li class="js-list-element-favorite${hiddenClass}" id="${favoriteShow.show.id}">`;
-    htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}<img src="./assets/images/icon-close.png" alt="Close" class="icon--close"></h3>`;
-    // htmlCode += '';
+    htmlCode += `<li class="js-list-element-favorite${hiddenClass} main__list--lifav" id="${favoriteShow.show.id}">`;
+    htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}</h3>`;
+
     if (favoriteShow.show.image === null) {
       htmlCode += `<img class="js-image page__card--img" src="${noImageUrlFavorite}" alt="${favoriteShow.show.name}" />`;
     } else {
