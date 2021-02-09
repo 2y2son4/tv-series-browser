@@ -90,10 +90,8 @@
     background-color: $color-bg;
     &--element {
       cursor: pointer;
-      display: flex;
+      @include flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       background-color: $color-bg;
       border: $color-brand rem(3) solid;
       border-radius: rem(15);
@@ -106,17 +104,13 @@
     }
     &--fav {
       cursor: pointer;
-      display: flex;
+      @include flexCenter;
       flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
       background-color: transparent;
     }
     &--lifav {
-      display: flex;
+      @include flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       border-radius: rem(15);
       padding: rem(5);
       margin: rem(10);
