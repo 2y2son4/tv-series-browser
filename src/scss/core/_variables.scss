@@ -1,25 +1,13 @@
 // fonts
-$font-title: 'Roboto Slab', serif;
-$font-text: 'Roboto', sans-serif;
-
-// brand colors
-$white: #ffffff;
-$black: black;
-$grey: #4a4a4a;
-$orange: #f26002;
-$light-blue: #8ccbea;
-$ice-blue: #eff9ff;
-$blue: #0271bc;
-$dark-blue: #304268;
+$main-font-text: 'Rubik', sans-serif;
+$defaultFontSize: 16;
 
 // page colors
-$color-bg: $white;
-$color-bg-2: $ice-blue;
-$color-text: $grey;
-$deco-brand: $orange;
-$light-brand: $light-blue;
-$color-brand: $blue;
-$dark-brand: $dark-blue;
+$color-bg: #252c30;
+$color-text: #a8d3d8;
+$color-text-scn: #465a61;
+$color-brand: #e91733;
+$light-brand: #e63950;
 
 // transitions
 $trans-bt: 0.8s ease;
