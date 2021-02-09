@@ -42,6 +42,7 @@ function paintSearchCards() {
 
   // listen to event after painting
   listenShowEvents();
+  listenResetBtn();
 }
 
 // paint Favorite shows cards
@@ -74,5 +75,6 @@ function paintFavoriteCards() {
   listFavoriteElement.innerHTML = htmlCode;
   // listen to event after painting
   listenFavoriteShowEvents();
+  listenResetBtn();
   setInLocalStorage();
 }

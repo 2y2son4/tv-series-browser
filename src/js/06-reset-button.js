@@ -12,5 +12,7 @@ function handleResetBtn() {
   favoriteShows = [];
 }
 
-const favoriteBtnElement = document.querySelector('.js-reset-btn');
-favoriteBtnElement.addEventListener('click', handleResetBtn);
+function listenResetBtn() {
+  const favoriteBtnElement = document.querySelector('.js-reset-btn');
+  favoriteBtnElement.addEventListener('click', handleResetBtn);
+}
