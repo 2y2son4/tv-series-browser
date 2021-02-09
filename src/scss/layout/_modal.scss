@@ -1,0 +1,54 @@
+.div1 {
+  position: fixed;
+  z-index: 998;
+  background-color: #30475e71;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div2 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #30475ea4;
+}
+.p-greeting {
+  width: 70%;
+  font-size: rem(28);
+  line-height: rem(42);
+  color: $color-text;
+  font-weight: 500;
+  text-align: center;
+  background-color: transparent;
+}
+.p-3 {
+  font-size: rem(36);
+}
+
+.modal-btn {
+  cursor: pointer;
+  width: rem(150);
+  height: 75px;
+  font-size: rem(32);
+  margin: rem(15);
+  color: $color-text;
+  font-weight: 500;
+
+  border-radius: rem(15);
+  transition: color $trans-bt, background-color $trans-bt;
+  &:hover {
+    background-color: $color-text;
+
+    color: $light-brand;
+  }
+}
+
+.hidden {
+  display: none;
+}
