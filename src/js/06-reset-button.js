@@ -4,15 +4,12 @@
 'use strict';
 
 // reset button for favorite shows
-function handleResetBtn() {
+/*function handleResetBtn() {
   console.log('man clicao');
-  favoriteSection.classList.add('hidden');
-  console.log(favoriteSection);
-  console.log(favoriteShows);
   favoriteShows = [];
 }
 
 function listenResetBtn() {
   const favoriteBtnElement = document.querySelector('.js-reset-btn');
   favoriteBtnElement.addEventListener('click', handleResetBtn);
-}
+}*/

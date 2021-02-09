@@ -42,15 +42,16 @@ function paintSearchCards() {
 
   // listen to event after painting
   listenShowEvents();
-  listenResetBtn();
+  // listenResetBtn();
 }
 
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
-  let htmlCode = '<button class="js-reset-btn main__favorite--btn">Clean favorites</button>';
-  htmlCode += '<ul class="main__list--fav js-list-favorites">';
-  // add/remove hidden CSS class for unfavorited shows
+  // htmlCode = '<button class="js-reset-btn main__favorite--btn">Clean favorites</button>';
+  let htmlCode = '<ul class="main__list--fav js-list-favorites">';
+
+  // add/remove hidden CSS class for un/favorited shows
   let hiddenClass;
   for (const favoriteShow of favoriteShows) {
     const isInFav = favoriteShows.find((favShow) => favShow.show.id === favoriteShow.show.id);
@@ -73,8 +74,9 @@ function paintFavoriteCards() {
 
   const listFavoriteElement = document.querySelector('.js-favorite-shows');
   listFavoriteElement.innerHTML = htmlCode;
+
   // listen to event after painting
   listenFavoriteShowEvents();
-  listenResetBtn();
+  //listenResetBtn();
   setInLocalStorage();
 }
