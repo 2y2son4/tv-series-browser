@@ -24,7 +24,7 @@ function getDataFromApi() {
     .then((response) => response.json())
     .then((data) => {
       shows = data;
-      console.log(shows);
+
       paintSearchCards();
       paintFavoriteCards();
       setInLocalStorage();
@@ -66,7 +66,7 @@ function paintSearchCards() {
       htmlCode += `<h2 class="page__card--title">${show.show.name}</h2>`;
     } else {
       htmlCode += '<h2 class="page__card--title">';
-      htmlCode += `<a href="${show.show.officialSite}" target="_blank" title="${show.show.name} official site">${show.show.name}</a>`;
+      htmlCode += `<a class="page__card--link" href="${show.show.officialSite}" target="_blank" title="${show.show.name} official site">${show.show.name}</a>`;
       htmlCode += '</h2>';
     }
 
@@ -83,7 +83,7 @@ function paintSearchCards() {
     htmlCode += '</li>';
   }
   htmlCode += '</ul>';
-  const listElement = document.querySelector('.js-list');
+  const listElement = document.querySelector('.js-search-shows');
   listElement.innerHTML = htmlCode;
 
   // listen to event after painting
@@ -93,7 +93,8 @@ function paintSearchCards() {
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
-  let htmlCode = '<ul class="main__list js-list-favorites">';
+  let htmlCode = '<button class="js-reset-btn">Clean favorites</button>';
+  htmlCode += '<ul class="main__list js-list-favorites">';
   // add/remove hidden CSS class for unfavorited shows
   let hiddenClass;
   for (const favoriteShow of favoriteShows) {
@@ -130,8 +131,12 @@ function listenShowEvents() {
 }
 
 function handleShow(ev) {
+  if (favoriteShows !== []) {
+    const favoriteSection = document.querySelector('.js-favorite-shows');
+    favoriteSection.classList.remove('hidden');
+  }
   const clickedShowId = Number(ev.currentTarget.id);
-  console.log(clickedShowId);
+
   // find if the clicked show is already in the favoriteShows array
   const favoriteCLickedShow = favoriteShows.find((favShow) => favShow.show.id === clickedShowId);
   if (favoriteCLickedShow === undefined) {
@@ -144,12 +149,22 @@ function handleShow(ev) {
     favoriteShows = filteredFavorites;
     //console.log('Si está, lo quito');
   }
-  // console.log(favoriteCLickedShow);
 
-  // console.log(favoriteShows);
   paintSearchCards();
   paintFavoriteCards();
 }
+
+function handleResetBtn() {
+  console.log('man clicao');
+  const favoriteSection = document.querySelector('.js-favorite-shows');
+  favoriteSection.classList.add('hidden');
+  console.log(favoriteSection);
+  console.log(favoriteShows);
+  favoriteShows = [];
+}
+
+const favoriteBtnElement = document.querySelector('.js-reset-btn');
+favoriteBtnElement.addEventListener('click', handleResetBtn);
 
 function listenFavoriteShowEvents() {
   const favoriteElements = document.querySelectorAll('.js-list-element-favorite');
