@@ -1,25 +1,25 @@
 // fonts
-$font-title: 'Roboto Slab', serif;
-$font-text: 'Roboto', sans-serif;
+$main-font-text: 'Rubik', sans-serif;
+$defaultFontSize: 16;
 
 // brand colors
-$white: #ffffff;
-$black: black;
-$grey: #4a4a4a;
-$orange: #f26002;
-$light-blue: #8ccbea;
-$ice-blue: #eff9ff;
-$blue: #0271bc;
-$dark-blue: #304268;
-
+$red: #cc0000;
+$secondary-red: #990000;
+$bronw: #330000;
+$light-bronw: #4b3131;
+$grey: #666666;
+$coral: #e74645;
+$light-orange: #fb7756;
+$dark-yellow: #facd60;
+$light-yellow: #fdfa66;
+$blue: #1ac0c6;
+$dark-blue: #096063;
 // page colors
-$color-bg: $white;
-$color-bg-2: $ice-blue;
-$color-text: $grey;
-$deco-brand: $orange;
-$light-brand: $light-blue;
-$color-brand: $blue;
-$dark-brand: $dark-blue;
+$color-bg: $coral;
+$color-text: $blue;
+$color-text-scn: $dark-blue;
+$color-brand: $light-orange;
+$dark-brand: $dark-yellow;
 
 // transitions
 $trans-bt: 0.8s ease;

@@ -1,0 +1,41 @@
+.page {
+  &__header {
+    width: 100%;
+    padding: rem(15);
+    background-color: $color-bg;
+  }
+  &__title {
+    font-family: $main-font-text;
+    color: $color-text;
+    text-align: center;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    &--input {
+      font-size: rem(32);
+      height: rem(100);
+      padding: rem(15);
+      &::placeholder {
+        font-size: rem(24);
+      }
+    }
+
+    &--btn {
+      width: rem(150);
+      font-size: rem(32);
+      background-color: $color-brand;
+      color: $color-text-scn;
+      border: $color-brand 2px solid;
+      border-radius: rem(15);
+      transition: color $trans-bt, border $trans-bt, background-color $trans-bt;
+      &:hover {
+        background-color: $dark-brand;
+        border: $color-bg 2px solid;
+        color: $color-text;
+      }
+    }
+  }
+}
