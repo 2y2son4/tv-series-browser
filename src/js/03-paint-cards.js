@@ -29,6 +29,7 @@ function paintSearchCards() {
     } else {
       htmlCode += `<img class="js-image main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
     }
+
     if (show.show.rating.average === null) {
       htmlCode += '<span class="page__card--rating">-- / 10</span>';
     } else {
@@ -37,30 +38,33 @@ function paintSearchCards() {
     htmlCode += '</li>';
   }
   htmlCode += '</ul>';
+
+  removeListenShowEvents();
+
   const listElement = document.querySelector('.js-search-shows');
   listElement.innerHTML = htmlCode;
 
   // listen to event after painting
   listenShowEvents();
-  // listenResetBtn();
 }
 
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
-  // htmlCode = '<button class="js-reset-btn main__favorite--btn">Clean favorites</button>';
-  let htmlCode = '<ul class="main__list--fav js-list-favorites">';
+  let hiddenClass;
+  if (favoriteShows.length === 0) {
+    hiddenClass = ' hidden';
+  } else {
+    hiddenClass = '';
+  }
+  let htmlCode = `<div class="main__favorite${hiddenClass}">`;
+  htmlCode += '<button class="js-reset-btn main__favorite--btn">Clean favorites</button>';
+  htmlCode += '<ul class="main__list--fav js-list-favorites">';
 
   // add/remove hidden CSS class for un/favorited shows
-  let hiddenClass;
+
   for (const favoriteShow of favoriteShows) {
-    const isInFav = favoriteShows.find((favShow) => favShow.show.id === favoriteShow.show.id);
-    if (isInFav === undefined) {
-      hiddenClass = ' hidden';
-    } else {
-      hiddenClass = '';
-    }
-    htmlCode += `<li class="js-list-element-favorite${hiddenClass} main__list--lifav" id="${favoriteShow.show.id}">`;
+    htmlCode += `<li class="js-list-element-favorite main__list--lifav" id="${favoriteShow.show.id}">`;
     htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}</h3>`;
 
     if (favoriteShow.show.image === null) {
@@ -71,12 +75,16 @@ function paintFavoriteCards() {
     htmlCode += '</li>';
   }
   htmlCode += '</ul>';
+  htmlCode += '</div>';
+
+  removeListenReset();
+  removeListenFavoriteShowEvents();
 
   const listFavoriteElement = document.querySelector('.js-favorite-shows');
   listFavoriteElement.innerHTML = htmlCode;
 
   // listen to event after painting
   listenFavoriteShowEvents();
-  //listenResetBtn();
+  listenResetBtn();
   setInLocalStorage();
 }

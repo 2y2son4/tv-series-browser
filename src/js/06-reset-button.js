@@ -4,12 +4,20 @@
 'use strict';
 
 // reset button for favorite shows
-/*function handleResetBtn() {
-  console.log('man clicao');
+function handleResetBtn() {
   favoriteShows = [];
+  paintFavoriteCards();
+  paintSearchCards();
 }
 
 function listenResetBtn() {
   const favoriteBtnElement = document.querySelector('.js-reset-btn');
   favoriteBtnElement.addEventListener('click', handleResetBtn);
-}*/
+}
+
+function removeListenReset() {
+  const favoriteBtnElement = document.querySelector('.js-reset-btn');
+  if (favoriteBtnElement !== null) {
+    favoriteBtnElement.removeEventListener('click', handleResetBtn);
+  }
+}

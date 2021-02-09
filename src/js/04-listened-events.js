@@ -11,11 +11,6 @@ function listenShowEvents() {
 }
 
 function handleShow(ev) {
-  if (favoriteShows !== undefined) {
-    favoriteSection.classList.remove('hidden');
-  } else {
-    favoriteSection.classList.add('hidden');
-  }
   const clickedShowId = Number(ev.currentTarget.id);
 
   // find if the clicked show is already in the favoriteShows array
@@ -33,10 +28,17 @@ function handleShow(ev) {
 
   paintSearchCards();
   paintFavoriteCards();
-  // listenResetBtn();
 }
 
-// listen to favorite show events
+// function to stop listening to show events
+function removeListenShowEvents() {
+  const cardElements = document.querySelectorAll('.js-list-element');
+  for (const cardElement of cardElements) {
+    cardElement.removeEventListener('click', handleShow);
+  }
+}
+
+// function to listen to favorite show events
 function listenFavoriteShowEvents() {
   const favoriteElements = document.querySelectorAll('.js-list-element-favorite');
   for (const favoriteElement of favoriteElements) {
@@ -59,5 +61,12 @@ function handleFavoriteShow(ev) {
   }
   paintSearchCards();
   paintFavoriteCards();
-  // listenResetBtn();
+}
+
+// function to stop listening to favorite show events
+function removeListenFavoriteShowEvents() {
+  const favoriteElements = document.querySelectorAll('.js-list-element-favorite');
+  for (const favoriteElement of favoriteElements) {
+    favoriteElement.removeEventListener('click', handleFavoriteShow);
+  }
 }
