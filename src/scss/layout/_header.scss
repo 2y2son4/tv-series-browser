@@ -1,12 +1,17 @@
 .header {
   width: 100%;
-  height: rem(150);
+  height: rem(100);
   padding: rem(40) 0 rem(15);
   background-color: $color-bg;
+  @include flexCenter;
 
   &__title {
     font-family: $main-font-text;
     color: $color-text;
     text-align: center;
+  }
+
+  &__icon {
+    margin: rem(10);
   }
 }

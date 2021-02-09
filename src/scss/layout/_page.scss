@@ -1,10 +1,9 @@
 .main {
   background-color: $color-bg;
-
   &__form {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: rem(15);
     &--input {
       font-size: rem(32);
@@ -12,6 +11,7 @@
       background-color: $light-brand;
       height: rem(75);
       padding: rem(15);
+      margin: rem(15);
       border: 2px $color-brand solid;
       border-radius: rem(15);
       &::placeholder {
@@ -23,7 +23,7 @@
       cursor: pointer;
       width: rem(150);
       font-size: rem(32);
-
+      margin: rem(15);
       background-color: $color-brand;
       color: $color-text;
       font-weight: 500;
@@ -122,16 +122,6 @@
   }
 }
 
-.card--favorite {
-  background-color: $color-brand;
-  border-radius: rem(15);
-  padding: rem(5);
-  margin: rem(5);
-}
-.hidden {
-  display: none;
-}
-
 .page {
   &__card {
     &--title {
@@ -155,7 +145,12 @@
   }
 }
 
-.icon--close {
-  background-color: $light-brand;
-  border-radius: 50%;
+.card--favorite {
+  background-color: $color-brand;
+  border-radius: rem(15);
+  padding: rem(5);
+  margin: rem(10);
+}
+.hidden {
+  display: none;
 }

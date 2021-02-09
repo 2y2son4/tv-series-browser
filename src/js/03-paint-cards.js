@@ -60,7 +60,6 @@ function paintFavoriteCards() {
       hiddenClass = '';
     }
     htmlCode += `<li class="js-list-element-favorite${hiddenClass} main__list--lifav" id="${favoriteShow.show.id}">`;
-    htmlCode += '<img src="./assets/images/icon-close.png" alt="Close" class="icon--close">';
     htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}</h3>`;
 
     // htmlCode += '';
