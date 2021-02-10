@@ -1,6 +1,7 @@
 .footer__span--link,
 .main__card--link {
   color: $color-brand;
+  transition: color $trans-bt;
   &:hover {
     color: $color-text;
   }
