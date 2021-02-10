@@ -7,7 +7,7 @@
 
   &__title {
     font-family: $main-font-text;
-    font-size: rem(38);
+    font-size: rem(32);
     color: $color-text;
     text-align: center;
   }
@@ -18,9 +18,9 @@
 }
 
 .fly-in-left {
-  animation: flyin 1s ease-in;
+  animation: flyinLeft 1s ease-in;
 }
-@keyframes flyin {
+@keyframes flyinLeft {
   0% {
     transform: translatex(-1000px);
     opacity: 0;

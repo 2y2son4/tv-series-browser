@@ -25,7 +25,7 @@ function paintSearchCards() {
     }
 
     if (show.show.image === null) {
-      htmlCode += `<img class="js-image main__card--img" src="${noImageUrl}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="js-image main__card--img" src="${noImageSrc}" alt="${show.show.name}" />`;
     } else {
       htmlCode += `<img class="js-image main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
     }
@@ -62,13 +62,12 @@ function paintFavoriteCards() {
   htmlCode += '<ul class="main__list--fav js-list-favorites">';
 
   // add/remove hidden CSS class for un/favorited shows
-
   for (const favoriteShow of favoriteShows) {
     htmlCode += `<li class="js-list-element-favorite main__list--lifav" id="${favoriteShow.show.id}">`;
     htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}</h3>`;
 
     if (favoriteShow.show.image === null) {
-      htmlCode += `<img class="js-image page__card--img" src="${noImageUrlFavorite}" alt="${favoriteShow.show.name}" />`;
+      htmlCode += `<img class="js-image page__card--img" src="${noImageSrcFavorite}" alt="${favoriteShow.show.name}" />`;
     } else {
       htmlCode += `<img class="js-image page__card--img" src="${favoriteShow.show.image.medium}" alt="${favoriteShow.show.name}" />`;
     }
