@@ -59,7 +59,7 @@ function paintSearchCards() {
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
-  // add/remove hidden CSS class for un/favorited shows
+  // add/remove hidden CSS class for un/favorited shows container
   let hiddenClass;
   if (favoriteShows.length === 0) {
     hiddenClass = ' hidden';
