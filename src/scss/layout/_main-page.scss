@@ -5,56 +5,87 @@
     justify-content: center;
     padding: rem(15);
     &--input {
-      font-size: rem(32);
+      font-size: rem(22);
       color: $color-text;
       background-color: $light-brand;
-      height: rem(75);
-      padding: rem(15);
-      margin: rem(15);
-      border: rem(3) $color-brand solid;
+      height: rem(50);
+      padding: rem(10);
+      margin: rem(10);
+      border: rem(2) $color-brand solid;
       border-radius: rem(15);
       &::placeholder {
-        font-size: rem(24);
+        font-size: rem(16);
         color: $color-text;
+      }
+      @include tablet {
+        font-size: rem(32);
+        height: rem(75);
+        padding: rem(15);
+        margin: rem(15);
+        border: rem(3) $color-brand solid;
+        &::placeholder {
+          font-size: rem(24);
+        }
       }
     }
     &--btn {
       cursor: pointer;
-      width: rem(150);
-      font-size: rem(32);
-      margin: rem(15);
+      width: rem(100);
+      font-size: rem(22);
+      margin: rem(10);
       background-color: $color-brand;
       color: $color-text;
       font-weight: 500;
-      border: $color-brand rem(2) solid;
+      border: $color-brand rem(1) solid;
       border-radius: rem(15);
       transition: color $trans-bt, border $trans-bt, background-color $trans-bt;
       &:hover {
         background-color: $color-text;
-        border: $color-text rem(2) solid;
+        border: $color-text rem(1) solid;
         color: $light-brand;
+      }
+      @include tablet {
+        width: rem(150);
+        font-size: rem(32);
+        margin: rem(15);
+        border: $color-brand rem(2) solid;
+        &:hover {
+          border: $color-text rem(2) solid;
+        }
       }
     }
   }
   &__card {
     &--title {
+      font-size: rem(16);
       padding: rem(5);
       margin: rem(5);
       border-radius: rem(10);
       color: $color-text;
       text-align: center;
+      @include tablet {
+        font-size: rem(22);
+      }
     }
     &--img {
+      width: rem(125);
       border-radius: rem(10);
       cursor: pointer;
+      @include tablet {
+        width: rem(210);
+      }
     }
     &--rating {
+      font-size: rem(14);
       background-color: $light-brand;
       padding: rem(5);
       margin: rem(5);
       border: rem(2) $color-brand solid;
       border-radius: rem(10);
       color: $color-text;
+      @include tablet {
+        font-size: rem(18);
+      }
     }
   }
   &__container {
@@ -81,23 +112,24 @@
     justify-content: space-around;
     background-color: $color-bg;
     &--element {
-      width: rem(300);
+      width: rem(150);
       @include flexCenter;
       flex-direction: column;
       background-color: $color-bg;
-      border: $color-brand rem(3) solid;
+      border: $color-brand rem(2) solid;
       border-radius: rem(15);
       padding: rem(5);
-      margin: rem(10);
+      margin: rem(5);
       transition: transform $trans-bt;
       &:hover {
         transform: scale(1.05);
       }
+      @include tablet {
+        width: rem(300);
+        border: $color-brand rem(3) solid;
+        margin: rem(10);
+      }
     }
-  }
-
-  &__form {
-    background-color: $color-bg;
   }
 }
 
@@ -121,15 +153,18 @@
   }
   &__card {
     &--title {
+      font-size: rem(14);
       width: rem(150);
       padding: rem(5);
       margin: rem(5);
-      font-size: rem(16);
       line-height: rem(20);
       font-weight: 400;
       border-radius: rem(10);
       color: $color-text;
       text-align: center;
+      @include tablet {
+        font-size: rem(16);
+      }
     }
     &--img {
       border-radius: rem(10);
