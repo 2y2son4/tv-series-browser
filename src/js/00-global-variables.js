@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 'use strict';
 
-const apiUrl = 'http://api.tvmaze.com/search/shows?q=';
+const apiUrl = 'https://api.tvmaze.com/search/shows?q=';
 
 let noImageSrc = './assets/images/place-holder-img-medium.png';
 let noImageSrcFavorite = './assets/images/place-holder-img-small.png';
