@@ -6,12 +6,12 @@
 }
 
 // mediaqueries
-@mixin mediaTablet {
+@mixin tablet {
   @media all and (min-width: 768px) {
     @content;
   }
 }
-@mixin mediaDesktop {
+@mixin desktop {
   @media all and (min-width: 1200px) {
     @content;
   }

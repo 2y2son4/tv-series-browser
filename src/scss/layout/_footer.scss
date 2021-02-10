@@ -1,12 +1,26 @@
 .footer {
   width: 100%;
-  height: 100px;
-  padding: 1rem;
+  height: rem(50);
+  padding: rem(5);
   background-color: $color-bg;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
   &__span {
     color: $color-text;
+  }
+}
+
+.fly-in-bottom {
+  animation: flyinBottom 1.2s ease-in;
+}
+@keyframes flyinBottom {
+  0% {
+    transform: translatey(rem(1000));
+    opacity: 0;
+  }
+  100% {
+    transform: translatey(0);
+    opacity: 1;
   }
 }

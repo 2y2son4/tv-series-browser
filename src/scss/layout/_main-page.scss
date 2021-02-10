@@ -26,12 +26,12 @@
       background-color: $color-brand;
       color: $color-text;
       font-weight: 500;
-      border: $color-brand 2px solid;
+      border: $color-brand rem(2) solid;
       border-radius: rem(15);
       transition: color $trans-bt, border $trans-bt, background-color $trans-bt;
       &:hover {
         background-color: $color-text;
-        border: $color-text 2px solid;
+        border: $color-text rem(2) solid;
         color: $light-brand;
       }
     }
@@ -40,8 +40,9 @@
     &--title {
       padding: rem(5);
       margin: rem(5);
-      border-radius: 10px;
+      border-radius: rem(10);
       color: $color-text;
+      text-align: center;
     }
     &--img {
       border-radius: rem(10);
@@ -80,6 +81,7 @@
     justify-content: space-around;
     background-color: $color-bg;
     &--element {
+      width: rem(300);
       @include flexCenter;
       flex-direction: column;
       background-color: $color-bg;
@@ -119,8 +121,12 @@
   }
   &__card {
     &--title {
+      width: rem(150);
       padding: rem(5);
       margin: rem(5);
+      font-size: rem(16);
+      line-height: rem(20);
+      font-weight: 400;
       border-radius: rem(10);
       color: $color-text;
       text-align: center;
@@ -149,15 +155,15 @@
     width: rem(150);
     height: rem(50);
     font-size: rem(18);
-    margin: 10px;
+    margin: rem(10);
     background-color: $color-bg;
     color: $color-text;
-    border: $color-bg 2px solid;
+    border: $color-bg rem(2) solid;
     border-radius: rem(15);
     transition: color $trans-bt, border $trans-bt, background-color $trans-bt;
     &:hover {
       background-color: $color-brand;
-      border: $color-brand 2px solid;
+      border: $color-brand rem(2) solid;
       color: $color-text;
     }
   }
@@ -175,15 +181,15 @@
 
 // animation
 .fly-in-right {
-  animation: flyinRight 1s ease-in;
+  animation: flyinRight 1.2s ease-in;
 }
 @keyframes flyinRight {
   0% {
-    transform: translatex(1000px);
+    transform: translatex(rem(1000));
     opacity: 0;
   }
   100% {
-    transform: translatex(0px);
+    transform: translatex(0);
     opacity: 1;
   }
 }
