@@ -8,7 +8,15 @@ function getDataFromApi() {
   fetch(apiUrl + search)
     .then((response) => response.json())
     .then((data) => {
-      shows = data;
+      if (data.length === 0) {
+        warningElement.classList.remove('hidden');
+        warningElement.innerHTML = 'No results. Try again!';
+        shows = [];
+      } else {
+        warningElement.innerHTML = '';
+        warningElement.classList.add('hidden');
+        shows = data;
+      }
 
       paintSearchCards();
       paintFavoriteCards();

@@ -228,3 +228,15 @@
     opacity: 1;
   }
 }
+
+.search-warning {
+  width: rem(250);
+  height: rem(50);
+  padding-top: rem(15);
+  margin: auto;
+  font-size: rem(16);
+  color: $color-text;
+  text-align: center;
+  background-color: $light-brand;
+  border-radius: rem(15);
+}
