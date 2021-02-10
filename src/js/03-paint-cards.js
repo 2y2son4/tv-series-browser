@@ -5,6 +5,8 @@
 // paint search card:
 function paintSearchCards() {
   let htmlCode = '<ul class="main__list">';
+
+  // paint HTML code
   let favClass;
   for (const show of shows) {
     // find if the show is already in the favoriteShows array
@@ -14,8 +16,10 @@ function paintSearchCards() {
     } else {
       favClass = ' card--favorite';
     }
-    // paint HTML code
+
     htmlCode += `<li class="main__list--element js-list-element${favClass}" id="${show.show.id}">`;
+
+    // add link to official site if the API has it
     if (show.show.officialSite === null) {
       htmlCode += `<h2 class="main__card--title">${show.show.name}</h2>`;
     } else {
@@ -24,23 +28,27 @@ function paintSearchCards() {
       htmlCode += '</h2>';
     }
 
+    // add show's image if the API has it
     if (show.show.image === null) {
-      htmlCode += `<img class="js-image main__card--img" src="${noImageSrc}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="main__card--img" src="${noImageSrc}" alt="${show.show.name}" />`;
     } else {
-      htmlCode += `<img class="js-image main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
     }
 
+    // add show's rating
     if (show.show.rating.average === null) {
-      htmlCode += '<span class="page__card--rating">-- / 10</span>';
+      htmlCode += '<span class="main__card--rating">-- / 10</span>';
     } else {
-      htmlCode += `<span class="page__card--rating">${show.show.rating.average} / 10</span>`;
+      htmlCode += `<span class="main__card--rating">${show.show.rating.average} / 10</span>`;
     }
     htmlCode += '</li>';
   }
   htmlCode += '</ul>';
 
+  // remove listeners before re/painting to prevent memory leaks and slow downs
   removeListenShowEvents();
 
+  // paint card in HTML file
   const listElement = document.querySelector('.js-search-shows');
   listElement.innerHTML = htmlCode;
 
@@ -51,39 +59,48 @@ function paintSearchCards() {
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
+  // add/remove hidden CSS class for un/favorited shows
   let hiddenClass;
   if (favoriteShows.length === 0) {
     hiddenClass = ' hidden';
   } else {
     hiddenClass = '';
   }
+
   let htmlCode = `<div class="main__favorite${hiddenClass}">`;
-  htmlCode += '<button class="js-reset-btn main__favorite--btn">Clean favorites</button>';
-  htmlCode += '<ul class="main__list--fav js-list-favorites">';
+  htmlCode += '<button class="fav__btn js-reset-btn">Clean favorites</button>';
+  htmlCode += '<ul class="fav__list js-list-favorites">';
 
-  // add/remove hidden CSS class for un/favorited shows
   for (const favoriteShow of favoriteShows) {
-    htmlCode += `<li class="js-list-element-favorite main__list--lifav" id="${favoriteShow.show.id}">`;
-    htmlCode += `<h3 class="page__card--title">${favoriteShow.show.name}</h3>`;
+    htmlCode += `<li class="fav__list--li js-list-element-favorite" id="${favoriteShow.show.id}">`;
+    htmlCode += `<h3 class="fav__card--title">${favoriteShow.show.name}</h3>`;
 
+    // add show's image if the API has it
     if (favoriteShow.show.image === null) {
-      htmlCode += `<img class="js-image page__card--img" src="${noImageSrcFavorite}" alt="${favoriteShow.show.name}" />`;
+      htmlCode += `<img class="fav__card--img" src="${noImageSrcFavorite}" alt="${favoriteShow.show.name}" />`;
     } else {
-      htmlCode += `<img class="js-image page__card--img" src="${favoriteShow.show.image.medium}" alt="${favoriteShow.show.name}" />`;
+      htmlCode += `<img class="fav__card--img" src="${favoriteShow.show.image.medium}" alt="${favoriteShow.show.name}" />`;
     }
+
+    // add fake remove button
+    htmlCode += '<button class="fav__card--btn" type="reset">Remove</button>';
     htmlCode += '</li>';
   }
   htmlCode += '</ul>';
   htmlCode += '</div>';
 
+  // remove listeners before re/painting to prevent memory leaks and slow downs
   removeListenReset();
   removeListenFavoriteShowEvents();
 
+  // paint card in HTML file
   const listFavoriteElement = document.querySelector('.js-favorite-shows');
   listFavoriteElement.innerHTML = htmlCode;
 
   // listen to event after painting
   listenFavoriteShowEvents();
   listenResetBtn();
+
+  // save in LS after listening to events
   setInLocalStorage();
 }

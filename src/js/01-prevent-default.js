@@ -7,4 +7,5 @@ function handleForm(ev) {
   ev.preventDefault();
 }
 
+// handler function to prevent submit form
 formElement.addEventListener('submit', handleForm);

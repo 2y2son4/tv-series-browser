@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 'use strict';
 
-// fetch data from API:
+// handler function to fetch data from API:
 function getDataFromApi() {
   const search = searchInputElement.value;
   fetch(apiUrl + search)
@@ -16,4 +16,5 @@ function getDataFromApi() {
     });
 }
 
+// handler function to listen to search
 searchBtnElement.addEventListener('click', getDataFromApi);

@@ -1,5 +1,4 @@
 .main {
-  background-color: $color-bg;
   &__form {
     width: 100%;
     display: flex;
@@ -48,6 +47,14 @@
       border-radius: rem(10);
       cursor: pointer;
     }
+    &--rating {
+      background-color: $light-brand;
+      padding: rem(5);
+      margin: rem(5);
+      border: rem(2) $color-brand solid;
+      border-radius: rem(10);
+      color: $color-text;
+    }
   }
   &__container {
     &--cards {
@@ -63,23 +70,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    &--btn {
-      cursor: pointer;
-      width: rem(150);
-      height: rem(50);
-      font-size: rem(18);
-      margin: 10px;
-      background-color: $color-bg;
-      color: $color-text;
-      border: $color-bg 2px solid;
-      border-radius: rem(15);
-      transition: color $trans-bt, border $trans-bt, background-color $trans-bt;
-      &:hover {
-        background-color: $color-brand;
-        border: $color-brand 2px solid;
-        color: $color-text;
-      }
-    }
   }
   &__search {
     width: 70%;
@@ -102,13 +92,19 @@
         transform: scale(1.05);
       }
     }
-    &--fav {
-      cursor: pointer;
-      @include flexCenter;
-      flex-flow: column wrap;
-      background-color: transparent;
-    }
-    &--lifav {
+  }
+
+  &__form {
+    background-color: $color-bg;
+  }
+}
+
+.fav {
+  &__list {
+    @include flexCenter;
+    flex-flow: column wrap;
+    background-color: transparent;
+    &--li {
       @include flexCenter;
       flex-direction: column;
       border-radius: rem(15);
@@ -121,13 +117,6 @@
       }
     }
   }
-
-  &__form {
-    background-color: $color-bg;
-  }
-}
-
-.page {
   &__card {
     &--title {
       padding: rem(5);
@@ -140,12 +129,35 @@
       border-radius: rem(10);
       width: rem(125);
     }
-    &--rating {
+    &--btn {
+      cursor: pointer;
       background-color: $light-brand;
       padding: rem(5);
       margin: rem(5);
       border: rem(2) $color-brand solid;
       border-radius: rem(10);
+      color: $color-text;
+      &:hover {
+        border: rem(2) $color-text solid;
+        background-color: $color-text;
+        color: $color-brand;
+      }
+    }
+  }
+  &__btn {
+    cursor: pointer;
+    width: rem(150);
+    height: rem(50);
+    font-size: rem(18);
+    margin: 10px;
+    background-color: $color-bg;
+    color: $color-text;
+    border: $color-bg 2px solid;
+    border-radius: rem(15);
+    transition: color $trans-bt, border $trans-bt, background-color $trans-bt;
+    &:hover {
+      background-color: $color-brand;
+      border: $color-brand 2px solid;
       color: $color-text;
     }
   }
@@ -161,6 +173,7 @@
   display: none;
 }
 
+// animation
 .fly-in-right {
   animation: flyinRight 1s ease-in;
 }

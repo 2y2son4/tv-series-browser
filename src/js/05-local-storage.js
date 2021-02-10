@@ -9,10 +9,14 @@ function setInLocalStorage() {
 
 function getFromLocalStorage() {
   const arrayFavoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
-  // find if it's the first time in the page or if the favorite arrays is empty.
+  // find if favoriteShows = [].
   if (arrayFavoriteShows !== null) {
     favoriteShows = arrayFavoriteShows;
   }
 }
+
+// get data from LS when the page start
 getFromLocalStorage();
+
+// paint cards so when the page is refresh they appear in favorites
 paintFavoriteCards();

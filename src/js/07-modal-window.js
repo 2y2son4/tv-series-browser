@@ -1,12 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 'use strict';
 
-const buttonElement = document.querySelector('.js-modal-btn');
-const modalWindow = document.querySelector('.js-modal');
-
+// function to delay modal window
 setTimeout(() => {
   modalWindow.classList.remove('hidden');
-}, 1500);
+}, 2000);
 
+// listener and fuction for close btn in modal window
 buttonElement.addEventListener('click', () => {
   modalWindow.classList.add('hidden');
 });
