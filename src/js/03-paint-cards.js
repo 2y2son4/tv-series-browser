@@ -75,7 +75,7 @@ function paintFavoriteCards() {
     htmlCode += `<li class="fav__list--li js-list-element-favorite" id="${favoriteShow.show.id}">`;
     htmlCode += `<h3 class="fav__card--title">${favoriteShow.show.name}</h3>`;
 
-    // add show's image if the API has it
+    // add show's image if the API has it or add placeholder
     if (favoriteShow.show.image === null) {
       htmlCode += `<img class="fav__card--img" src="${noImageSrcFavorite}" alt="${favoriteShow.show.name}" />`;
     } else {
