@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 'use strict';
@@ -75,3 +76,9 @@ function removeListenFavoriteShowEvents() {
     favoriteElement.removeEventListener('click', handleFavoriteShow);
   }
 }
+
+function handleLogBtn() {
+  console.log(`You have ${favoriteShows.length} ${favoriteShows.length === 1 ? 'favorite' : 'favorites'}`);
+}
+
+logBtnElement.addEventListener('click', handleLogBtn);

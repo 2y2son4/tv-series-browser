@@ -27,6 +27,15 @@ function paintSearchCards() {
       htmlCode += `<a class="main__card--link" href="${show.show.officialSite}" target="_blank" title="${show.show.name} official site">${show.show.name}</a>`;
       htmlCode += '</h2>';
     }
+    const recommendLang = ['English', 'Spanish', 'Portuguese'];
+    // add show's language and show if it it's recommended
+
+    const isRecommen = recommendLang.find((lang) => lang === show.show.language);
+    if (isRecommen !== undefined) {
+      htmlCode += `<p class="main__card--language">${show.show.language} / Recommend!</p>`;
+    } else {
+      htmlCode += `<p class="main__card--language">${show.show.language}</p>`;
+    }
 
     // add show's image if the API has it
     if (show.show.image === null) {
