@@ -15,7 +15,7 @@ const warningElement = document.querySelector('.js-warning');
 const favoriteSection = document.querySelector('.js-favorite-shows');
 
 // modal window
-const buttonElement = document.querySelector('.js-modal-btn');
+const modelBtnElement = document.querySelector('.js-modal-btn');
 const modalWindow = document.querySelector('.js-modal');
 
 //empty arrays for shows and favorites

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 'use strict';
@@ -13,7 +14,6 @@ function getDataFromApi() {
         warningElement.innerHTML = 'No results. Try again!';
         shows = [];
       } else {
-        warningElement.innerHTML = '';
         warningElement.classList.add('hidden');
         shows = data;
       }
@@ -21,7 +21,16 @@ function getDataFromApi() {
       paintSearchCards();
       paintFavoriteCards();
       setInLocalStorage();
-    });
+    })
+
+    // shows on console errors
+    .catch((error) => console.log(`An error has occurred: ${error}`));
+
+  // .catch(
+  //   (error) => (
+  //     warningElement.classList.remove('hidden'), (warningElement.innerHTML = `An error has occurred: ${error}`)
+  //   )
+  // );
 }
 
 // handler function to listen to search
