@@ -43,21 +43,11 @@ function removeListenShowEvents() {
 function handleFavoriteShow(ev) {
   const clickedShowId = Number(ev.currentTarget.id);
 
-  // find if the clicked show is already in the favoriteShows array
-  /*const favoriteCLickedShow = favoriteShows.find((favShow) => favShow.show.id === clickedShowId);
-  if (favoriteCLickedShow === undefined) {
-    // add to favoriteShows[] the shows with the clicked ID if it isn't in the array already.
-    const clickedShow = shows.find((tvShow) => clickedShowId === tvShow.show.id);
-    favoriteShows.push(clickedShow);
-  } else {*/
-
-  // filter the ID if is already in the fav array and obtain the array of the unclicked fav shows
+  // filter the ID of the clickedShow and obtain the array of the unclicked fav shows
   const filteredFavorites = favoriteShows.filter((favShow) => favShow.show.id !== clickedShowId);
   favoriteShows = filteredFavorites;
 
-  /*}*/
-
-  // re/paint cards with the conditional info
+  // re/paint cards
   paintSearchCards();
   paintFavoriteCards();
 }
