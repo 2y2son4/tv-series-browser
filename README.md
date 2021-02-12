@@ -17,3 +17,15 @@ Ejercicio de JavaScript, HTML y CSS para realizar una página de búsqueda de se
 6. **MAQUETACIÓN CSS:** Crear un estilo de página atractivo y que no recuerde a los visualmente espantosos años 90.
 
 La web puede visitarse en este [enlace](https://beta.adalab.es/modulo-2-evaluacion-final-2y2son4/ 'Shows hunter by 2y2son4').
+
+## DIAGRAMAS DE FLUJO:
+
+![01-diagrama_arrancar_pagina](./src/images/01-diagrama_arrancar_pagina.png '01-diagrama_arrancar_pagina')
+
+![02-diagrama_ventana_modal](./src/images/02-diagrama_ventana_modal.png '02-diagrama_ventana_modal')
+
+![03-diagrama_busqueda](./src/images/03-diagrama_busqueda.png '03-diagrama_busqueda')
+
+![04-diagrama_favoritos_busqueda](./src/images/04-diagrama_favoritos_busqueda.png '04-diagrama_favoritos_busqueda')
+
+![05-diagrama_favoritos_favoritos](./src/images/05-diagrama_favoritos_favoritos.png '05-diagrama_favoritos_favoritos')
