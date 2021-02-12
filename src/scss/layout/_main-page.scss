@@ -76,6 +76,7 @@
       }
     }
     &--rating {
+      display: inline-block;
       font-size: rem(14);
       background-color: $light-brand;
       padding: rem(5);
@@ -235,4 +236,33 @@
   text-align: center;
   background-color: $light-brand;
   border-radius: rem(15);
+}
+
+.main__card--sum {
+  position: relative;
+  display: inline-block;
+}
+
+.main__card--sum .main__card--span {
+  font-size: rem(14);
+  visibility: hidden;
+  width: rem(200);
+  background-color: $color-bg;
+  border: rem(1) solid $color-brand;
+  color: $color-text;
+  text-align: center;
+  border-radius: rem(15);
+  padding: rem(5);
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: rem(-60);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.main__card--sum:hover .main__card--span {
+  visibility: visible;
+  opacity: 1;
 }

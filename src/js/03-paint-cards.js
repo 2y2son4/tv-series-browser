@@ -30,16 +30,18 @@ function paintSearchCards() {
 
     // add show's image if the API has it
     if (show.show.image === null) {
-      htmlCode += `<img class="main__card--img" src="${noImageSrc}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="main__card--img" src="${noImageSrc}" alt="${show.show.name}" title="${show.show.name}" />`;
     } else {
-      htmlCode += `<img class="main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" />`;
+      htmlCode += `<img class="main__card--img" src="${show.show.image.medium}" alt="${show.show.name}" title="${show.show.name}" />`;
     }
+
+    // add show's summary
 
     // add show's rating
     if (show.show.rating.average === null) {
-      htmlCode += '<span class="main__card--rating">-- / 10</span>';
+      htmlCode += `<div class="main__card--sum js-summary"><span class="main__card--span">${show.show.summary}</span><span class="main__card--rating">-- / 10</span></div>`;
     } else {
-      htmlCode += `<span class="main__card--rating">${show.show.rating.average} / 10</span>`;
+      htmlCode += `<div class="main__card--sum js-summary"><span class="main__card--span">${show.show.summary}</span><span class="main__card--rating">${show.show.rating.average} / 10</span></div>`;
     }
     htmlCode += '</li>';
   }
@@ -77,9 +79,9 @@ function paintFavoriteCards() {
 
     // add show's image if the API has it or add placeholder
     if (favoriteShow.show.image === null) {
-      htmlCode += `<img class="fav__card--img" src="${noImageSrcFavorite}" alt="${favoriteShow.show.name}" />`;
+      htmlCode += `<img class="fav__card--img" src="${noImageSrcFavorite}" alt="${favoriteShow.show.name}" title="${favoriteShow.show.name}" />`;
     } else {
-      htmlCode += `<img class="fav__card--img" src="${favoriteShow.show.image.medium}" alt="${favoriteShow.show.name}" />`;
+      htmlCode += `<img class="fav__card--img" src="${favoriteShow.show.image.medium}" alt="${favoriteShow.show.name}" title="${favoriteShow.show.name}" />`;
     }
 
     // add fake remove button
