@@ -38,10 +38,14 @@ function paintSearchCards() {
     // add show's summary
 
     // add show's rating
-    if (show.show.rating.average === null) {
-      htmlCode += `<div class="main__card--sum js-summary"><span class="main__card--span">${show.show.summary}</span><span class="main__card--rating">-- / 10</span></div>`;
+    if (show.show.rating.average === null && show.show.summary === null) {
+      htmlCode += '<span class="main__card--rating">-- / 10</span>';
+    } else if (show.show.rating.average === null) {
+      htmlCode += `<div class="main__card--sum"><span class="main__card--span">${show.show.summary}</span><span class="main__card--rating">-- / 10</span></div>`;
+    } else if (show.show.summary === null) {
+      htmlCode += `<span class="main__card--rating">${show.show.rating.average} / 10</span>`;
     } else {
-      htmlCode += `<div class="main__card--sum js-summary"><span class="main__card--span">${show.show.summary}</span><span class="main__card--rating">${show.show.rating.average} / 10</span></div>`;
+      htmlCode += `<div class="main__card--sum"><span class="main__card--span">${show.show.summary}</span><span class="main__card--rating">${show.show.rating.average} / 10</span></div>`;
     }
     htmlCode += '</li>';
   }
