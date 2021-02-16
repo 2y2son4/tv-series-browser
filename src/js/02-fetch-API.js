@@ -5,10 +5,13 @@
 
 // handler function to fetch data from API:
 function getDataFromApi() {
+  const searchInputElement = document.querySelector('.js-search-input');
   const search = searchInputElement.value;
+
   fetch(apiUrl + search)
     .then((response) => response.json())
     .then((data) => {
+      const warningElement = document.querySelector('.js-warning');
       if (data.length === 0) {
         warningElement.classList.remove('hidden');
         warningElement.innerHTML = 'No results. Try again!';

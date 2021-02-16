@@ -4,6 +4,8 @@
 
 // paint search card:
 function paintSearchCards() {
+  let noImageSrc = './assets/images/placeholder-img-medium.png';
+
   let htmlCode = '<ul class="main__list">';
 
   // paint HTML code
@@ -65,6 +67,8 @@ function paintSearchCards() {
 // paint Favorite shows cards
 function paintFavoriteCards() {
   // paint HTML code
+  let noImageSrcFavorite = './assets/images/placeholder-img-small.png';
+
   // add/remove hidden CSS class for un/favorited shows container
   let hiddenClass;
   if (favoriteShows.length === 0) {
