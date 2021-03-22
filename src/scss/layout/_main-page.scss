@@ -3,13 +3,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: rem(15);
+    padding: rem(10);
     &--input {
-      font-size: rem(22);
+      font-size: rem(16);
       color: $color-text;
       background-color: $light-brand;
-      height: rem(50);
-      padding: rem(10);
+      width: auto;
+      height: rem(40);
+      padding: rem(5);
       margin: rem(10);
       border: rem(2) $color-brand solid;
       border-radius: rem(15);
@@ -68,7 +69,7 @@
       }
     }
     &--img {
-      width: rem(125);
+      width: rem(100);
       border-radius: rem(10);
       cursor: pointer;
       @include tablet {
@@ -80,8 +81,6 @@
       font-size: rem(14);
       background-color: $light-brand;
       padding: rem(5);
-      margin: rem(5);
-
       border-radius: rem(10);
       color: $color-text;
       @include tablet {
@@ -95,14 +94,18 @@
     }
   }
   &__favorite {
-    width: auto;
+    width: rem(130);
     background-color: $light-brand;
     border-radius: rem(15);
-    margin: rem(10) rem(20);
+    margin: rem(5);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    @include tablet {
+      width: auto;
+      margin: rem(10) rem(20);
+    }
   }
   &__search {
     width: 70%;
@@ -112,21 +115,24 @@
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: $color-bg;
+    width: auto;
     &--element {
-      width: rem(150);
+      width: rem(120);
       @include flexCenter;
       flex-direction: column;
       background-color: $color-bg;
       border: $color-brand rem(2) solid;
       border-radius: rem(15);
-      padding: rem(5);
-      margin: rem(5);
+      padding: rem(3);
+      margin: rem(3);
       transition: transform $trans-bt;
       &:hover {
         transform: scale(1.05);
       }
       @include tablet {
         width: rem(200);
+        padding: rem(5);
+        margin: rem(5);
         border: $color-brand rem(3) solid;
       }
     }
@@ -146,15 +152,16 @@
       margin: rem(10);
       background-color: $color-brand;
       transition: transform $trans-bt;
-      &:hover {
-        transform: scale(1.05);
+      width: rem(110);
+      @include tablet {
+        width: auto;
       }
     }
   }
   &__card {
     &--title {
-      font-size: rem(14);
-      width: rem(150);
+      font-size: rem(12);
+      width: auto;
       padding: rem(5);
       margin: rem(5);
       line-height: rem(20);
@@ -164,11 +171,12 @@
       text-align: center;
       @include tablet {
         font-size: rem(16);
+        width: rem(150);
       }
     }
     &--img {
       border-radius: rem(10);
-      width: rem(125);
+      width: rem(100);
     }
     &--btn {
       cursor: pointer;
@@ -187,10 +195,10 @@
   }
   &__btn {
     cursor: pointer;
-    width: rem(150);
-    height: rem(50);
-    font-size: rem(18);
-    margin: rem(10);
+    width: rem(120);
+    height: rem(40);
+    font-size: rem(14);
+    margin: rem(5);
     background-color: $color-bg;
     color: $color-text;
     border: $color-bg rem(2) solid;
@@ -201,6 +209,10 @@
       border: $color-brand rem(2) solid;
       color: $color-text;
     }
+    @include tablet {
+      width: rem(150);
+      font-size: rem(18);
+    }
   }
 }
 
@@ -208,7 +220,10 @@
   background-color: $color-brand;
   border-radius: rem(15);
   padding: rem(5);
-  margin: rem(10);
+  margin: rem(5);
+  @include tablet {
+    margin: rem(10);
+  }
 }
 
 // animation
@@ -228,8 +243,8 @@
 
 .search-warning {
   width: rem(250);
-  height: rem(50);
-  padding-top: rem(15);
+  height: rem(80);
+  padding: rem(20);
   margin: auto;
   font-size: rem(16);
   color: $color-text;
@@ -239,14 +254,17 @@
 }
 
 .main__card--sum {
-  position: relative;
   display: inline-block;
+  background-color: $light-brand;
+  margin: rem(5);
+  border-radius: rem(15);
+  cursor: pointer;
 }
 
 .main__card--sum .main__card--span {
   font-size: rem(14);
   visibility: hidden;
-  width: rem(200);
+  width: rem(115);
   background-color: $color-bg;
   border: rem(1) solid $color-brand;
   color: $color-text;
@@ -255,11 +273,13 @@
   padding: rem(5);
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: rem(-60);
+  bottom: 0;
+  left: 0;
   opacity: 0;
   transition: opacity 0.3s;
+  @include tablet {
+    width: rem(195);
+  }
 }
 
 .main__card--sum:hover .main__card--span {

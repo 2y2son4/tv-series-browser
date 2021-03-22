@@ -26,14 +26,12 @@ function getDataFromApi() {
       setInLocalStorage();
     })
 
-    // shows on console errors
-    .catch((error) => console.log(`An error has occurred: ${error}`));
-
-  // .catch(
-  //   (error) => (
-  //     warningElement.classList.remove('hidden'), (warningElement.innerHTML = `An error has occurred: ${error}`)
-  //   )
-  // );
+    .catch(
+      (error) => (
+        document.querySelector('.js-warning').classList.remove('hidden'),
+        (document.querySelector('.js-warning').innerHTML = `An error has occurred: ${error}`)
+      )
+    );
 }
 
 // handler function to listen to search
