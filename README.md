@@ -16,7 +16,7 @@ Ejercicio de JavaScript, HTML y CSS para realizar una página de búsqueda de se
 5. **BORRAR FAVORITOS:** Al pulsar sobre las series favoritas, estas se podrán eliminar del apartado de favoritas de una en una o todas las que se encuentren en el apartado con un solo click.
 6. **MAQUETACIÓN CSS:** Crear un estilo de página atractivo y que no recuerde a los visualmente espantosos años 90.
 
-La web puede visitarse en este [enlace](https://beta.adalab.es/modulo-2-evaluacion-final-2y2son4/ 'Shows hunter by 2y2son4').
+La web puede visitarse en este [enlace](https://2y2son4.github.io/tv-series-browser/ 'Shows hunter by 2y2son4').
 
 ## DIAGRAMAS DE FLUJO:
 
